@@ -1,3 +1,3 @@
-ln .aliases ~/.aliases
-ln .dircolors ~/.dircolors
-ln .zshrc ~/.zshrc
+ln -sf "$(pwd)/.aliases" ~/.aliases
+ln -sf "$(pwd)/.dircolors" ~/.dircolors
+ln -sf "$(pwd)/.zshrc" ~/.zshrc
