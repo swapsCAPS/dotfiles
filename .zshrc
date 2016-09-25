@@ -27,10 +27,10 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -40,7 +40,7 @@ ZSH_THEME="agnoster"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -53,21 +53,24 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/stofstik/Dropbox/android-sdk-linux/platform-tools:/home/stofstik/Dropbox/apktool:/home/stofstik/Dropbox/binder_script:/home/stofstik/Dropbox/cyanogenmod/bin:/usr/local/lib/node_modules/jshint:/home/stofstik/Dropbox/android-sdk-linux/platform-tools:/home/stofstik/Dropbox/apktool:/home/stofstik/Dropbox/binder_script:/home/stofstik/Dropbox/cyanogenmod/bin:/home/stofstik/Dropbox/android-sdk-linux/platform-tools:/home/stofstik/Dropbox/apktool:/home/stofstik/Dropbox/binder_script:/home/stofstik/Dropbox/cyanogenmod/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+# Environment variables
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
 source $ZSH/oh-my-zsh.sh
 
+# Try to source our aliases
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
+# Try to set our dircolors
 if [ -f ~/.dircolors ]; then
     eval "$(dircolors ~/.dircolors)";
 fi
 
+# Base16 theme switcher
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-
+# Set default user so prompt string isn't too long
 DEFAULT_USER="stofstik"
