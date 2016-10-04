@@ -56,6 +56,11 @@ plugins=(git)
 # Environment variables
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
+# Codaisseur Ruby stuff : )
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
 source $ZSH/oh-my-zsh.sh
 
 # Try to source our aliases

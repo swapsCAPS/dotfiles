@@ -1,3 +1,4 @@
 alias dirs="dirs -v"
 alias tmux='tmux -2'
 alias ls='ls -la'
+alias :q='exit'
