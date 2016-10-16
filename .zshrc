@@ -68,9 +68,18 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
+# Try to source our aliases
+if [ -f ~/.environment-variables ]; then
+    . ~/.environment-variables
+fi
+
 # Try to set our dircolors
 if [ -f ~/.dircolors ]; then
     eval "$(dircolors ~/.dircolors)";
+fi
+
+if [ -f ~/.bin/tmuxinator.zsh ]; then
+  source ~/.bin/tmuxinator.zsh
 fi
 
 # Base16 theme switcher

@@ -1,6 +1,7 @@
 alias dirs="dirs -v"
 alias tmux='tmux -2'
-alias ls='ls -lah'
+alias ls='ls -lh'
+alias la='ls -lah'
 alias :q='exit'
 alias sagi="sudo apt-get install"
 alias cl="clear"
