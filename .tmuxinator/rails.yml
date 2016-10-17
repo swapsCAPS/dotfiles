@@ -3,42 +3,28 @@
 name: rails-codaisseur
 root: .
 
-# Optional tmux socket
-# socket_name: foo
-
-# Runs before everything. Use it to start daemons etc.
-# pre: sudo /etc/rc.d/mysqld start
-
-# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-# pre_window: rbenv shell 2.0.0-p247
-
-# Pass command line options to tmux. Useful for specifying a different tmux.conf.
-# tmux_options: -f ~/.tmux.mac.conf
-
-# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
-# tmux_command: byobu
-
-# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-# startup_window: editor
-
-# Specitifes (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
-# startup_pane: 1
-
-# Controls whether the tmux session should be attached to automatically. Defaults to true.
-# attach: false
-
-# Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t rails
+# Starts a rails development environment in the current path with four windows.
+# - An editor window with a small console for git stuff
+# - Starts a rails server
+# - Starts PG-Admin4, it assumes that you have the Linux beta version installed
+# - A window for random stuff
 
 windows:
   - DEVELOPMENT:
+      # First make your layouts, then do 'tmux list-layout' in another shell
+      # Copy paste the layout data like this
+      layout: 74a8,225x65,0,0[225x58,0,0,0,225x7,0,59,4]
       panes:
         - vim:
           - vim
-          - ':NERDTree'
+          - ':NERDTree' # surround with quotes to be able to use ':'
         - shell:
           - gst
   - RAILS_SERVER: rails s
+  - PG_ADMIN:
+    - cd ~/pgadmin
+    - source bin/activate
+    - python ./lib/python2.7/site-packages/pgadmin4/pgAdmin4.py
   - STUFF:
     - cd ~/
     - clear

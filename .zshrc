@@ -88,3 +88,6 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # Set default user so prompt string isn't too long
 DEFAULT_USER="stofstik"
+
+# Set key timeout
+KEYTIMEOUT=1
