@@ -61,6 +61,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
+# Place binaries in this bin folder
+export PATH="$HOME/bin:$PATH"
+
 source $ZSH/oh-my-zsh.sh
 
 # Try to source our aliases
