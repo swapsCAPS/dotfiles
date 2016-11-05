@@ -3,14 +3,13 @@
 name: react-codaisseur
 root: .
 
-# Starts a rails development environment in the current path with four windows.
+# Starts a web development environment in the current path with four windows.
 # - An editor window with a small console for git stuff
-# - Starts a rails server
-# - Starts PG-Admin4, it assumes that you have the Linux beta version installed
+# - Starts a web server
 # - A window for random stuff
 
 windows:
-  - DEVELOPMENT:
+  - EDITOR:
       # First make your layouts, then do 'tmux list-layout' in another shell
       # Copy paste the layout data like this
       layout: 74a8,225x65,0,0[225x58,0,0,0,225x7,0,59,4]
@@ -20,11 +19,15 @@ windows:
           - ':NERDTree' # surround with quotes to be able to use ':'
         - shell:
           - gst
-  - RAILS_SERVER: rails s
-  - PG_ADMIN:
-    - cd ~/pgadmin
-    - source bin/activate
-    - python ./lib/python2.7/site-packages/pgadmin4/pgAdmin4.py
+  - SERVER:
+      # First make your layouts, then do 'tmux list-layout' in another shell
+      # Copy paste the layout data like this
+      layout: 5741,111x61,0,0[111x30,0,0,1,111x30,0,31,6]
+      panes:
+        - server:
+          - npm start
+        - tests:
+          - npm run test:watch
   - STUFF:
     - cd ~/
     - clear
