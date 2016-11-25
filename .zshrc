@@ -88,6 +88,8 @@ if [ -f ~/.bin/tmuxinator.zsh ]; then
   source ~/.bin/tmuxinator.zsh
 fi
 
+export TERM=xterm-256color
+
 # Base16 theme switcher
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

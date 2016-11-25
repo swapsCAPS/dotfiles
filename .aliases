@@ -5,3 +5,7 @@ alias la='ls -lah'
 alias :q='exit'
 alias sagi="sudo apt-get install"
 alias cl="clear"
+
+if type nvim >/dev/null 2>/dev/null; then
+  alias vim=nvim
+fi
