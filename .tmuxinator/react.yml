@@ -1,6 +1,4 @@
-# ~/.tmuxinator/react.yml
-
-name: react-codaisseur
+name: React
 root: .
 
 # Starts a web development environment in the current path with four windows.
@@ -12,7 +10,7 @@ windows:
   - EDITOR:
       # First make your layouts, then do 'tmux list-layout' in another shell
       # Copy paste the layout data like this
-      layout: 74a8,225x65,0,0[225x58,0,0,0,225x7,0,59,4]
+      layout: ef3b,135x57,0,0[135x48,0,0,0,135x9,0,49,3]
       panes:
         - vim:
           - vim

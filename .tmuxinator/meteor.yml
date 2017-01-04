@@ -1,0 +1,20 @@
+name: Meteor
+root: .
+
+windows:
+  - EDITOR:
+      # First make your layouts, then do 'tmux list-layout' in another shell
+      # Copy paste the layout data like this
+      layout: ef3b,135x57,0,0[135x48,0,0,0,135x9,0,49,3]
+      panes:
+        - vim:
+          - vim
+          - ':NERDTree' # surround with quotes to be able to use ':'
+        - shell:
+          - gst
+  - SERVER:
+    - meteor
+  - STUFF:
+    - cd ~/
+    - clear
+    - ls

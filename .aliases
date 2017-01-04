@@ -1,5 +1,5 @@
 alias dirs="dirs -v"
-alias tmux='tmux -2'
+alias tmux='TERM=screen-256color-bce tmux'
 alias ls='ls -lh'
 alias la='ls -lah'
 alias :q='exit'
