@@ -73,9 +73,9 @@ windows:
           - node build/server/app.js
         - pane:
           - cd ../example-application
-          - gulp
+          - node build/server/app.js
         - pane:
           - cd ../nm-service-registry
-          - gulp
+          - node build/server/app.js
   - HTOP:
     - htop
