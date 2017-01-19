@@ -72,10 +72,10 @@ windows:
         - pane:
           - node build/server/app.js
         - pane:
-          - cd ../example-application
+          - cd ../data-generator-server
           - gulp
         - pane:
-          - cd ../nm-service-registry
+          - cd ../service-registry
           - gulp
   - HTOP:
     - htop
