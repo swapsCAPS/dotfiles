@@ -73,9 +73,9 @@ windows:
           - node build/server/app.js
         - pane:
           - cd ../data-generator-server
-          - gulp
+          - node build/server/app.js
         - pane:
           - cd ../service-registry
-          - gulp
+          - node build/server/app.js
   - HTOP:
     - htop
