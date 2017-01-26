@@ -1,0 +1,25 @@
+name: micro-services-grid
+root: .
+
+# Grid of 8 windows running ./app.js
+
+windows:
+  - SHANNANIGANS:
+      layout: d72a,225x52,0,0{56x52,0,0[56x26,0,0,0,56x25,0,27,8],55x52,57,0[55x26,57,0,4,55x25,57,27,5],56x52,113,0[56x26,113,0,2,56x25,113,27,6],55x52,170,0[55x26,170,0,3,55x25,170,27,7]}
+      panes:
+        - pane:
+          - node app.js
+        - pane:
+          - node app.js
+        - pane:
+          - node app.js
+        - pane:
+          - node app.js
+        - pane:
+          - node app.js
+        - pane:
+          - node app.js
+        - pane:
+          - node app.js
+        - pane:
+          - node app.js
