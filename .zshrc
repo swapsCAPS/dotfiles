@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/stofstik/.oh-my-zsh
+  export ZSH=/home/dan/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -61,7 +61,7 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
-export NVM_DIR="/home/stofstik/.nvm"
+export NVM_DIR="/home/dan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Place binaries in this bin folder
@@ -93,7 +93,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Set default user so prompt string isn't too long
-DEFAULT_USER="stofstik"
+DEFAULT_USER="dan"
 
 # Set key timeout
 KEYTIMEOUT=1
