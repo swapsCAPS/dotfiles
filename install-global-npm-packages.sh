@@ -1,1 +1,8 @@
-npm install -g gulp editorconfig eslint jsonlint nodemon
+npm install -g \
+  gulp \
+  editorconfig \
+  eslint \
+  jsonlint \
+  coffeelint \
+  tern \
+  nodemon
