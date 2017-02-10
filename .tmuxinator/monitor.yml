@@ -1,0 +1,17 @@
+name: Monitor
+root: .
+
+# Starts a web development environment in the current path with four windows.
+# - An editor window with a small console for git stuff
+# - Starts a web server
+# - A window for random stuff
+
+windows:
+  - Monitoring:
+      layout: 7f21,190x45,0,0[190x15,0,0,4,190x29,0,16{49x29,0,16,9,82x29,50,16,10,57x29,133,16,11}]
+      panes:
+        - vim:
+          - htop
+        - shell:
+        - shell:
+        - shell:
