@@ -27,7 +27,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -56,13 +56,14 @@ plugins=(git)
 # Environment variables
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
-# Codaisseur Ruby stuff : )
+# Load rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
+# Load nvm
 export NVM_DIR="/home/dan/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # Place binaries in this bin folder
 export PATH="$HOME/bin:$PATH"
@@ -74,7 +75,7 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
-# Try to source our aliases
+# Try to source our env vars
 if [ -f ~/.environment-variables ]; then
     . ~/.environment-variables
 fi
@@ -87,6 +88,10 @@ fi
 if [ -f ~/.bin/tmuxinator.zsh ]; then
   source ~/.bin/tmuxinator.zsh
 fi
+
+# zsh completion path
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
 
 # Base16 theme switcher
 BASE16_SHELL=$HOME/.config/base16-shell/

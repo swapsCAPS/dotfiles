@@ -6,6 +6,7 @@ alias :q='exit'
 alias sagi="sudo apt-get install"
 alias cl="clear"
 alias gs='git status'
+alias sudo='sudo '
 
 if type nvim >/dev/null 2>/dev/null; then
   alias vim=nvim

@@ -5,4 +5,6 @@ npm install -g \
   jsonlint \
   coffeelint \
   tern \
-  nodemon
+  nodemon \
+  cson \
+  coffee-script \
