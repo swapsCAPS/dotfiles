@@ -6,7 +6,10 @@ alias :q='exit'
 alias sagi="sudo apt-get install"
 alias cl="clear"
 alias gs='git status'
+alias gdc='git diff --cached'
 alias sudo='sudo '
+alias wr='echo $PWD'
+alias fuh='kill -9'
 
 if type nvim >/dev/null 2>/dev/null; then
   alias vim=nvim
