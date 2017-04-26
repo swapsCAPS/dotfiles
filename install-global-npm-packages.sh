@@ -4,6 +4,7 @@ npm install -g \
   eslint \
   jsonlint \
   coffeelint \
+  coffeelint-cjsx \
   tern \
   nodemon \
   cson \
