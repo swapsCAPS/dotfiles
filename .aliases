@@ -1,9 +1,10 @@
 alias dirs="dirs -v"
-alias tmux='TERM=screen-256color tmux'
+alias tmux='tmux'
 alias ls='ls -lh  --color=auto --group-directories-first'
 alias la='ls -lah --color=auto --group-directories-first'
 alias :q='exit'
-alias sagi="sudo apt-get install"
+alias sagi="sudo apt install"
+alias sagr="sudo apt remove"
 alias cl="clear"
 alias gs='git status'
 alias gdc='git diff --cached'
