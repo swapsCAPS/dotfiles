@@ -32,6 +32,9 @@ indent_size = 4
 [**.coffee]
 indent_style = tab
 indent_size = 4
+[**.cjsx]
+indent_style = tab
+indent_size = 4
 [**.rb]
 indent_style = space
 indent_size = 4
