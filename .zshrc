@@ -117,3 +117,5 @@ prompt_end() {
   #Adds the new line and ➜ as the start character.
   printf "\n ➜";
 }
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
