@@ -12,8 +12,8 @@ alias sudo='sudo '
 alias wr='echo $PWD'
 alias fuh='kill -9'
 
-alias :D='base16_monokai'
-alias :L='base16_solarized-light'
+alias D='base16_monokai'
+alias L='base16_solarized-light'
 
 if type nvim >/dev/null 2>/dev/null; then
   alias vim='nvim'
