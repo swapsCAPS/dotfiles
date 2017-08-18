@@ -68,6 +68,8 @@ export NVM_DIR="$HOME/.nvm"
 # Place binaries in this bin folder
 export PATH="$HOME/bin:$PATH"
 
+export PATH="$HOME/bin/platform-tools:$PATH"
+
 source $ZSH/oh-my-zsh.sh
 
 # Try to source our aliases
