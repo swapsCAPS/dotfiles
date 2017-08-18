@@ -1,5 +1,4 @@
 npm install -g \
-  gulp \
   editorconfig \
   eslint \
   jsonlint \
@@ -7,5 +6,4 @@ npm install -g \
   coffeelint-cjsx \
   tern \
   nodemon \
-  cson \
   coffee-script \
