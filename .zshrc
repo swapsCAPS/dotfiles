@@ -57,9 +57,9 @@ plugins=(git)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
 # Load rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # Load nvm
 export NVM_DIR="$HOME/.nvm"
