@@ -86,6 +86,10 @@ if [ -f ~/.environment-variables ]; then
     . ~/.environment-variables
 fi
 
+if [ -f ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh ]; then
+    ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
+fi
+
 # Try to set our dircolors
 if [ -f ~/.dircolors ]; then
     eval "$(dircolors ~/.dircolors)";
