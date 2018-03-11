@@ -3,12 +3,17 @@ module.exports = {
 
   "env": {
     "browser": true,
-    "node": true
+    "node":    true
   },
 
   "rules": {
-    "comma-dangle": ["warn", "always"],
-    "no-multi-spaces": ["ignore", "always"],
-    "semi": ["error", "never"],
+    "no-multi-spaces": "off",
+
+    "array-bracket-spacing": ["warn",  "always"],
+    "object-curly-spacing":  ["warn",  "always"],
+    "arrow-parens":          ["warn",  "as-needed"],
+    "comma-dangle":          ["warn",  "always-multiline"],
+    "semi":                  ["error", "never"],
+    "no-unused-vars":        ["warn",  { "vars": "all" } ],
   }
 };
