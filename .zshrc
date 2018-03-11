@@ -54,7 +54,7 @@ plugins=(git)
 # User configuration
 
 # Environment variables
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+export PATH="/opt/nbfc:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
 # Load rbenv
 # export PATH="$HOME/.rbenv/bin:$PATH"
@@ -69,7 +69,10 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/bin:$PATH"
 
 export PATH="$HOME/bin/platform-tools:$PATH"
+
 export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/code/go
+export PATH=$GOPATH:$GOPATH/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
