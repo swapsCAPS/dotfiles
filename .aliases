@@ -1,7 +1,9 @@
 alias dirs="dirs -v"
 alias tmux='tmux'
 alias ls='ls -lh  --color=auto --group-directories-first'
+alias lst='ls -tlh  --color=auto --group-directories-first'
 alias la='ls -lah --color=auto --group-directories-first'
+alias lat='ls -halt --color=auto --group-directories-first'
 alias :q='exit'
 alias sagi="sudo apt install"
 alias sagr="sudo apt remove"
