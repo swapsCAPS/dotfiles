@@ -9,5 +9,6 @@ module.exports = {
   "rules": {
     "comma-dangle": ["warn", "always"],
     "no-multi-spaces": ["ignore", "always"],
+    "semi": ["error", "never"],
   }
 };
