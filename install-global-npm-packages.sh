@@ -2,7 +2,7 @@ npm install -g \
   editorconfig \
   eslint \
   jsonlint \
-  js-beautify \
+  es-beautifier \
   coffeelint \
   coffeelint-cjsx \
   tern \
@@ -11,4 +11,4 @@ npm install -g \
   eslint-config-airbnb \
   eslint-plugin-jsx-a11y \
   eslint-plugin-react \
-  eslint-plugin-import
+  eslint-plugin-import \
