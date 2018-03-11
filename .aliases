@@ -14,6 +14,7 @@ alias fuh='kill -9'
 
 alias D='base16_gruvbox-dark-medium'
 alias L='base16_gruvbox-light-medium'
+alias shrug='echo ¯\\_(ツ)_/¯'
 
 if type nvim >/dev/null 2>/dev/null; then
   alias vim='nvim'
