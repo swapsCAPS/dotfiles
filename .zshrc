@@ -68,6 +68,8 @@ export NVM_DIR="$HOME/.nvm"
 # Place binaries in this bin folder
 export PATH="$HOME/bin:$PATH"
 
+export PATH="$HOME/src/kafka_2.11-1.1.0/bin:$PATH"
+
 export PATH="$HOME/bin/platform-tools:$PATH"
 
 export PATH=$PATH:/usr/local/go/bin

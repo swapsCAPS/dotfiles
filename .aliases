@@ -11,9 +11,10 @@ alias cl="clear"
 alias gs='git status'
 alias gdc='git diff --cached'
 alias sudo='sudo '
-alias wr='echo $PWD'
 alias fuh='kill -9'
 alias doclog='docker logs -f --tail 500'
+alias glog='git log --oneline --decorate --graph --remotes --branches --tags'
+
 
 alias D='base16_gruvbox-dark-medium'
 alias L='base16_gruvbox-light-medium'
