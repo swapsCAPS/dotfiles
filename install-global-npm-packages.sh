@@ -11,4 +11,10 @@ npm install -g \
   coffee-script \
   eslint-plugin-import \
   eslint-plugin-jsx-a11y \
-  eslint-plugin-react
+  eslint-plugin-react \
+  eslint-plugin-standard \
+  eslint-plugin-promise \
+  eslint-config-standard \
+  eslint-plugin-import \
+  eslint-plugin-node
+
