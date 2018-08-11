@@ -10,3 +10,4 @@ npm install -g \
   eslint-plugin-import \
   eslint-plugin-jsx-a11y \
   eslint-plugin-react \
+  coffeescript@2
