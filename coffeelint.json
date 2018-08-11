@@ -12,7 +12,9 @@
     },
     "check_scope": {
         "environments": [
-            "es5"
+            "es5",
+            "es6",
+            "node"
         ],
         "globals": {
             "$": true,
