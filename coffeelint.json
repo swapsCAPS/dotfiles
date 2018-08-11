@@ -29,6 +29,9 @@
         "shadow_builtins": false,
         "shadow_exceptions": [
             "err",
+            "error",
+            "cb",
+            "callback",
             "next"
         ],
         "undefined": true,
