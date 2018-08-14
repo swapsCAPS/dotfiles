@@ -36,13 +36,13 @@ indent_size = 4
 indent_style = tab
 indent_size = 4
 [**.rb]
-indent_style = space
+indent_style = tab
 indent_size = 4
 [**.js]
-indent_style = space
+indent_style = tab
 indent_size = 2
 [**.py]
-indent_style = space
+indent_style = tab
 indent_size = 4
 [**.conf]
 indent_style = tab

@@ -1,3 +1,4 @@
+alias Grep="grep -rni ./ --exclude-dir node_modules --exclude-dir build --exclude-dir dist -e"
 alias dirs="dirs -v"
 alias tmux='tmux'
 alias ls='ls -lh  --color=auto --group-directories-first'
