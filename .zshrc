@@ -5,7 +5,7 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="avit"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -118,18 +118,18 @@ DEFAULT_USER=$(whoami)
 # Set key timeout
 KEYTIMEOUT=1
 
-prompt_end() {
-  if [[ -n $CURRENT_BG ]]; then
-    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
-  else
-    echo -n "%{%k%}"
-  fi
-  echo -n "%{%f%}"
-  CURRENT_BG=''
+# prompt_end() {
+  # if [[ -n $CURRENT_BG ]]; then
+    # echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+  # else
+    # echo -n "%{%k%}"
+  # fi
+  # echo -n "%{%f%}"
+  # CURRENT_BG=''
 
-  #Adds the new line and ➜ as the start character.
-  printf "\n ➜";
-}
+  # #Adds the new line and ➜ as the start character.
+  # printf "\n ➜";
+# }
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
