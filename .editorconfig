@@ -47,3 +47,6 @@ indent_size = 4
 [**.conf]
 indent_style = tab
 indent_size = 2
+[**.vue]
+indent_style = tab
+indent_size = 2
