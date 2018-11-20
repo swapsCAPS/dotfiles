@@ -73,6 +73,8 @@ export PATH="$HOME/src/kafka_2.11-1.1.0/bin:$PATH"
 
 export PATH="$HOME/bin/platform-tools:$PATH"
 
+export OCIO="$HOME/src/filmic-blender/config.ocio"
+
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/code/go
 export PATH=$GOPATH:$GOPATH/bin:$PATH
