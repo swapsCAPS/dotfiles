@@ -1,0 +1,27 @@
+name: viriciti
+root: ~/
+
+# Starts a web development environment in the current path with four windows.
+on_project_first_start: ~/Viriciti/start-up.sh
+
+windows:
+  - portal:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd ~/Viriciti/vems/portal
+          - vim
+          - ':NERDTree'
+        - shell:
+          - cd ~/Viriciti/vems/portal
+          - npm start
+  - gateway:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd ~/Viriciti/vems/portal
+          - vim
+          - ':NERDTree'
+        - shell:
+          - cd ~/Viriciti/vems/portal
+          - npm start
