@@ -57,9 +57,11 @@ plugins=(git kubectl git-flow-completion)
 export PATH="/opt/nbfc:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
 # Load rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+if [ -d ~/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+fi
 
 # Load nvm
 export NVM_DIR="$HOME/.nvm"
@@ -103,8 +105,8 @@ if [ -f ~/.dircolors ]; then
     eval "$(dircolors ~/.dircolors)";
 fi
 
-if [ -f ~/.bin/tmuxinator.zsh ]; then
-  source ~/.bin/tmuxinator.zsh
+if [ -f ~/bin/tmuxinator.zsh ]; then
+  source ~/bin/tmuxinator.zsh
 fi
 
 # zsh completion path

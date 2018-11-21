@@ -1,26 +1,27 @@
-# ~/.tmuxinator/web-dev.yml
-
-name: web-dev
-root: .
+name: viriciti
+root: ~/
 
 # Starts a web development environment in the current path with four windows.
+on_project_first_start: ~/Viriciti/start-up.sh
 
 windows:
-  - EDITOR:
-      layout: 74a8,225x65,0,0[225x58,0,0,0,225x7,0,59,4]
+  - portal:
+      layout: main-vertical
       panes:
         - vim:
+          - cd ~/Viriciti/vems/portal
           - vim
           - ':NERDTree'
         - shell:
-          - gst
-  - SERVER:
-      layout: 5741,111x61,0,0[111x30,0,0,1,111x30,0,31,6]
+          - cd ~/Viriciti/vems/portal
+          - npm start
+  - gateway:
+      layout: main-vertical
       panes:
-        - server:
-          - lite-server
-  - LOGS:
-  - STUFF:
-    - cd ~/
-    - clear
-    - ls
+        - vim:
+          - cd ~/Viriciti/vems/portal
+          - vim
+          - ':NERDTree'
+        - shell:
+          - cd ~/Viriciti/vems/portal
+          - npm start
