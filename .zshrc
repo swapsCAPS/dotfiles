@@ -66,6 +66,29 @@ fi
 # Load nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Auto load node version from .nvmrc
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 # Place binaries in these dirs
 export PATH="$HOME/bin:$PATH"
@@ -123,24 +146,5 @@ DEFAULT_USER=$(whoami)
 # Set key timeout
 KEYTIMEOUT=1
 
-# prompt_end() {
-  # if [[ -n $CURRENT_BG ]]; then
-    # echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
-  # else
-    # echo -n "%{%k%}"
-  # fi
-  # echo -n "%{%f%}"
-  # CURRENT_BG=''
-
-  # #Adds the new line and ➜ as the start character.
-  # printf "\n ➜";
-# }
-
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/dan/Viriciti/export/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/dan/Viriciti/export/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/dan/Viriciti/export/node_modules/tabtab/.completions/sls.zsh ]] && . /home/dan/Viriciti/export/node_modules/tabtab/.completions/sls.zsh
+# kubectl completion
+source <(kubectl completion zsh)
