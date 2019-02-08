@@ -105,3 +105,12 @@ KEYTIMEOUT=1
 
 # kubectl completion
 source <(kubectl completion zsh)
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/dan/Viriciti/export/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/dan/Viriciti/export/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/dan/Viriciti/export/node_modules/tabtab/.completions/sls.zsh ]] && . /home/dan/Viriciti/export/node_modules/tabtab/.completions/sls.zsh
+
+source /home/dan/miniconda3/etc/profile.d/conda.sh
