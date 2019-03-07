@@ -113,4 +113,6 @@ source <(kubectl completion zsh)
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /home/dan/Viriciti/export/node_modules/tabtab/.completions/sls.zsh ]] && . /home/dan/Viriciti/export/node_modules/tabtab/.completions/sls.zsh
 
-source /home/dan/miniconda3/etc/profile.d/conda.sh
+if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
+  source /home/dan/miniconda3/etc/profile.d/conda.sh
+fi
