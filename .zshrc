@@ -6,7 +6,7 @@ COMPLETION_WAITING_DOTS="true"
 
 HIST_STAMPS="yyyy-mm-dd"
 
-plugins=(git kubectl git-flow-completion)
+plugins=(git kubectl git-flow)
 
 export PATH="/opt/nbfc:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
