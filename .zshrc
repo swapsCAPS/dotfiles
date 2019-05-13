@@ -57,6 +57,9 @@ export PATH="$HOME/bin/platform-tools:$PATH"
 # Blender color fix, you'll need to start Blender from a shell though
 export OCIO="$HOME/src/filmic-blender/config.ocio"
 
+# Linkerd
+export PATH=$PATH:$HOME/.linkerd2/bin
+
 # GO!
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/code/go
@@ -105,13 +108,6 @@ KEYTIMEOUT=1
 
 # kubectl completion
 source <(kubectl completion zsh)
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/dan/Viriciti/export/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/dan/Viriciti/export/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/dan/Viriciti/export/node_modules/tabtab/.completions/sls.zsh ]] && . /home/dan/Viriciti/export/node_modules/tabtab/.completions/sls.zsh
 
 if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
   source /home/dan/miniconda3/etc/profile.d/conda.sh

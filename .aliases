@@ -16,6 +16,7 @@ alias fuh='kill -9'
 alias doclog='docker logs -f --tail 500'
 alias glog='git log --oneline --decorate --graph --remotes --branches --tags'
 alias kc='kubectl'
+alias kt='kubetail'
 alias kcl='kubectl logs'
 alias kcd='kubectl describe'
 
