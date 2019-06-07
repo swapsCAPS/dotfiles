@@ -6,7 +6,7 @@ COMPLETION_WAITING_DOTS="true"
 
 HIST_STAMPS="yyyy-mm-dd"
 
-plugins=(git kubectl git-flow npm tmux coffee node)
+plugins=(git kubectl kubetail git-flow npm tmux coffee node)
 
 export PATH="/opt/nbfc:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
@@ -111,4 +111,10 @@ source <(kubectl completion zsh)
 
 if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
   source /home/dan/miniconda3/etc/profile.d/conda.sh
+fi
+
+
+if [ -f ~/src/kube-ps1/kube-ps1.sh ]; then
+  source ~/src/kube-ps1/kube-ps1.sh
+  PROMPT='$(kube_ps1)'$PROMPT
 fi
