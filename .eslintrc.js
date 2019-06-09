@@ -1,6 +1,6 @@
 module.exports = {
-  extends: [ 'standard', 'prettier' ],
-  plugins: ['prettier', 'align-assignments' ],
+  extends: [ 'standard' ],
+  plugins: ['align-assignments' ],
   env:     { browser: true, node: true, mocha: true },
   rules:   {
     'array-bracket-spacing':               ['warn', 'always'],
@@ -9,7 +9,6 @@ module.exports = {
     'no-unused-vars':                      ['warn', { vars: 'all' }],
     'no-multi-spaces':                     ['warn', { 'exceptions': { 'ImportDeclaration':  true, 'VariableDeclarator': true } }],
     'padded-blocks':                       ['warn', 'never'],
-    'prettier/prettier':                   'error',
     'align-assignments/align-assignments': ['warn', { 'requiresOnly': false } ]
   },
 }
