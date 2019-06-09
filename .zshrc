@@ -113,8 +113,10 @@ if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
   source /home/dan/miniconda3/etc/profile.d/conda.sh
 fi
 
-
 if [ -f ~/src/kube-ps1/kube-ps1.sh ]; then
   source ~/src/kube-ps1/kube-ps1.sh
-  PROMPT='$(kube_ps1)'$PROMPT
 fi
+
+PROMPT='
+$(_user_host)${_current_dir}$(kube_ps1) $(git_prompt_info)
+%{$fg[$CARETCOLOR]%}▶%{$resetcolor%} '

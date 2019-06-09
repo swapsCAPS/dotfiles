@@ -1,9 +1,23 @@
 module.exports = {
-  "extends": "standard",
-  "env": { "browser": true, "node": true },
-  "rules": {
-    "key-spacing": ["error", { "align": "value" }],
-    "no-multi-spaces": ["error", { "exceptions": { "ImportDeclaration": true } }],
-    "comma-dangle": ["error", "always"],
-  }
-};
+  extends: [ 'standard', 'prettier' ],
+  plugins: ['prettier'],
+  rules: {
+    'prettier/prettier': 'error',
+  },
+  env: { browser: true, node: true, mocha: true },
+  rules: {
+    'comma-dangle':          ['warn', 'always'],
+    'no-unused-vars':        ['warn', { vars: 'all' }],
+    'no-multi-spaces':       ['warn', {
+      'exceptions': {
+        'ImportDeclaration':  true,
+        'VariableDeclarator': true
+      }
+    }],
+    'key-spacing':           ['warn', {
+      "align": 'value'
+    }],
+    'padded-blocks':         ['warn', 'never'],
+    'array-bracket-spacing': ['warn', 'always'],
+  },
+}
