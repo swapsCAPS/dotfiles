@@ -9,6 +9,6 @@ module.exports = {
     'no-unused-vars':                      ['warn', { vars: 'all' }],
     'no-multi-spaces':                     'off',
     'padded-blocks':                       ['warn', 'never'],
-    'align-assignments/align-assignments': ['warn', { 'requiresOnly': true } ]
+    'align-assignments/align-assignments': ['warn', { 'requiresOnly': false } ]
   },
 }
