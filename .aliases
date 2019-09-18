@@ -19,7 +19,8 @@ alias kc='kubectl'
 alias kt='kubetail'
 alias kcl='kubectl logs'
 alias kcd='kubectl describe'
-
+alias kgrep='kubectl get po | grep '
+alias klogs='kubectl logs -f --tail 1000'
 
 alias D='base16_gruvbox-dark-medium'
 alias L='base16_gruvbox-light-medium'
