@@ -8,4 +8,6 @@ npm i -D \
     eslint-plugin-align-assignments \
     mocha \
     nodemon \
-    nyc
+    nyc \
+    chai \
+    mocha

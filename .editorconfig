@@ -42,7 +42,7 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 [**.py]
-indent_style = tab
+indent_style = space
 indent_size = 4
 [**.conf]
 indent_style = tab

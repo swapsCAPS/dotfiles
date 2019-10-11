@@ -3,6 +3,7 @@ module.exports = {
   plugins: ['align-assignments' ],
   env:     { browser: true, node: true, mocha: true },
   rules:   {
+    'promise/param-names':                 ['warn', 'always'],
     'array-bracket-spacing':               ['warn', 'always'],
     'comma-dangle':                        ['warn', 'always-multiline'],
     'key-spacing':                         ['warn', { "align": 'value' }],
