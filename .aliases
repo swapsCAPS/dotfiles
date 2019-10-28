@@ -1,26 +1,32 @@
 alias Grep="grep -rni ./ --exclude-dir node_modules --exclude-dir build --exclude-dir dist -e"
 alias dirs="dirs -v"
 alias tmux='tmux'
-alias ls='ls -lh  --color=auto --group-directories-first'
-alias lst='ls -tlh  --color=auto --group-directories-first'
-alias la='ls -lah --color=auto --group-directories-first'
-alias lat='ls -halt --color=auto --group-directories-first'
+alias ls='ls -lh  --group-directories-first'
+alias lst='ls -tlh  --group-directories-first'
+alias la='ls -lah --group-directories-first'
+alias lat='ls -halt --group-directories-first'
 alias :q='exit'
 alias sagi="sudo apt install"
 alias sagr="sudo apt remove"
 alias cl="clear"
-alias gs='git status'
 alias gdc='git diff --cached'
 alias sudo='sudo '
 alias fuh='kill -9'
-alias doclog='docker logs -f --tail 500'
+alias dlogs='docker logs -f --tail 500'
 alias glog='git log --oneline --decorate --graph --remotes --branches --tags'
 alias kc='kubectl'
 alias kt='kubetail'
-alias kcl='kubectl logs'
 alias kcd='kubectl describe'
 alias kgrep='kubectl get po | grep '
+alias kcl='kubectl logs'
 alias klogs='kubectl logs -f --tail 1000'
+
+# SYSTEMCTL
+alias sstart='sudo systemctl start '
+alias srestart='sudo systemctl restart '
+alias sstop='sudo systemctl stop '
+alias senable='sudo systemctl enable '
+alias sdisable='sudo systemctl disable '
 
 alias D='base16_gruvbox-dark-medium'
 alias L='base16_gruvbox-light-medium'
