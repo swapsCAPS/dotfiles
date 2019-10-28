@@ -26,6 +26,7 @@ alias sstart='sudo systemctl start '
 alias srestart='sudo systemctl restart '
 alias sstop='sudo systemctl stop '
 alias senable='sudo systemctl enable '
+alias sstatus='sudo systemctl status '
 alias sdisable='sudo systemctl disable '
 
 alias D='base16_gruvbox-dark-medium'
