@@ -49,8 +49,12 @@ export PATH=$HOME/.cargo/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 
 # Try to source our aliases
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
+if [ -f ~/src/dotfiles/.aliases ]; then
+    . ~/src/dotfiles/.aliases
+fi
+
+if [ -f ~/src/dotfiles/gruvbox.dircolors ]; then
+    eval "$(dircolors ~/src/dotfiles/gruvbox.dircolors)"
 fi
 
 # Try to source our env vars
