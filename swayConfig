@@ -4,49 +4,55 @@
 set $mod Mod4
 
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
+set $left  h
+set $down  j
+set $up    k
 set $right l
 
-# Your preferred terminal emulator
-set $term gnome-terminal
+# Preferred terminal emulator
+set $term alacritty
 
-# Your preferred application launcher
+# Preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
-# This is what I use in ie config
 # custom variables for workspaces
-set $ws1 "comm"
-set $ws2 "term"
-set $ws3 "web"
-set $ws4 4
+set $ws1 "1 comm"
+set $ws2 "2 term"
+set $ws3 "3 web"
+set $ws4 "4 misc"
 set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
 set $ws9 9
 
+set $display_internal   "eDP-1"
+set $display_work_left  "Dell Inc. DELL U2415 7MT0192222RU"
+set $display_work_right "Dell Inc. DELL U2415 7MT01922234U"
 
 ##==================================================##
 #        *** Workspace specific settings ***         #
 ##==================================================##
 # Assign Workspaces:
 assign [class="Firefox" title="Slack.*"] $ws1
-assign [app_id="gnome-terminal-server"] $ws2
+assign [app_id="alacritty"] $ws2
 assign [class="Firefox"] $ws3
+assign [class="Studio 3T"] $ws4
 
-### Output configuration
-#
+# set output
+
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output $display_internal   res 1920x1080 pos 0,0
+output $display_work_left  res 1920x1200 pos 1920,0
+output $display_work_right res 1920x1200 pos 3840,0
+
+workspace $ws1 output $display_internal
+workspace $ws2 output $display_work_left
+workspace $ws3 output $display_work_right
+workspace $ws4 output $display_work_right
 
 ### Idle configuration
 #
@@ -72,10 +78,12 @@ input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
     middle_emulation enabled
 }
 
-input "1:1:AT_Translated_Set_2_keyboard" {
+input "*" {
     xkb_options caps:swapescape
-    repeat_delay 250
-    repeat_rate 50
+
+    # w00sh!
+    repeat_delay 200
+    repeat_rate 70
 }
 
 ### Key bindings
@@ -107,16 +115,10 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 #
 # Moving around:
 #
-# Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-# Or use $mod+[up|down|left|right]
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+$left  workspace prev
+bindsym $mod+$right workspace next
+bindsym $mod+Left   workspace prev
+bindsym $mod+Right  workspace next
 
 # Move the focused window with the same, but add Shift
 bindsym $mod+Shift+$left move left
@@ -133,10 +135,10 @@ bindsym $mod+Shift+Right move right
 # Workspaces:
 #
 # Switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -144,10 +146,10 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -160,9 +162,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 #
 # Layout stuff:
 #
-# You can "split" the current object of your focus with
-# $mod+b or $mod+v, for horizontal and vertical splits
-# respectively.
+# $mod+b or $mod+v, for horizontal and vertical splits respectively.
 bindsym $mod+b splith
 bindsym $mod+v splitv
 
@@ -182,19 +182,6 @@ bindsym $mod+space focus mode_toggle
 
 # Move focus to the parent container
 bindsym $mod+a focus parent
-
-#
-# Scratchpad:
-#
-# Sway has a "scratchpad", which is a bag of holding for windows.
-# You can send windows there and get them back later.
-
-# Move the currently focused window to the scratchpad
-# bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-# bindsym $mod+minus scratchpad show
 
 #
 # Resizing containers:
