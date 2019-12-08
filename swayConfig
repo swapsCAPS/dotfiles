@@ -1,9 +1,7 @@
-### Variables
-#
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
-# Home row direction keys, like vim
+# Home row direction keys
 set $left  h
 set $down  j
 set $up    k
@@ -16,7 +14,6 @@ set $term alacritty
 # Note: it's recommended that you pass the final command to sway
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
-# custom variables for workspaces
 set $ws1 "1 comm"
 set $ws2 "2 term"
 set $ws3 "3 web"
@@ -31,16 +28,14 @@ set $display_internal   "eDP-1"
 set $display_work_left  "Dell Inc. DELL U2415 7MT0192222RU"
 set $display_work_right "Dell Inc. DELL U2415 7MT01922234U"
 
-##==================================================##
-#        *** Workspace specific settings ***         #
-##==================================================##
 # Assign Workspaces:
 assign [class="Firefox" title="Slack.*"] $ws1
-assign [app_id="alacritty"] $ws2
+assign [app_id="Alacritty"] $ws2
 assign [class="Firefox"] $ws3
 assign [class="Studio 3T"] $ws4
 
-# set output
+# Automatically send windows to workspaces
+for_window [class="Firefox" title="Slack.*"] move to workspace $ws1
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -52,7 +47,7 @@ output $display_work_right res 1920x1200 pos 3840,0
 workspace $ws1 output $display_internal
 workspace $ws2 output $display_work_left
 workspace $ws3 output $display_work_right
-workspace $ws4 output $display_work_right
+workspace $ws4 output $display_work_left
 
 ### Idle configuration
 #
@@ -82,9 +77,10 @@ input "*" {
     xkb_options caps:swapescape
 
     # w00sh!
-    repeat_delay 200
+    repeat_delay 250
     repeat_rate 70
 }
+
 
 ### Key bindings
 #
@@ -159,6 +155,13 @@ bindsym $mod+Shift+0 move container to workspace 10
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
 
+# Custom keybindings
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp   exec brightnessctl set +5%
+
 #
 # Layout stuff:
 #
@@ -212,12 +215,14 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
+set $battery_cmd upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | cut -d : -f2
+set $date_cmd date +'%Y-%m-%d %H:%M'
 bar {
     position bottom
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    status_command while echo "$($date_cmd) \| $($battery_cmd)"; do sleep 5; done
 
     colors {
         statusline #ffffff
@@ -227,3 +232,8 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+exec libinput-gestures-setup start
+exec alacritty
+exec firefox https://news.ycombinator.com/
+exec firefox $WORK_SLACK_URL
