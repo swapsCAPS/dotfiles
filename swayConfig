@@ -113,11 +113,6 @@ bindsym $mod+Shift+$left  move left
 bindsym $mod+Shift+$down  move down
 bindsym $mod+Shift+$up    move up
 bindsym $mod+Shift+$right move right
-# Ditto, with arrow keys
-bindsym $mod+Shift+Left  move left
-bindsym $mod+Shift+Down  move down
-bindsym $mod+Shift+Up    move up
-bindsym $mod+Shift+Right move right
 
 #
 # Workspaces:
@@ -191,20 +186,15 @@ bindsym $mod+a focus parent
 # Resizing containers:
 #
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left  resize shrink width  10px
+    bindsym $down  resize grow   height 10px
+    bindsym $up    resize shrink height 10px
+    bindsym $right resize grow   width  10px
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 5px
-    bindsym Down resize grow height 5px
-    bindsym Up resize shrink height 5px
-    bindsym Right resize grow width 5px
+    bindsym Left   resize shrink width  5px
+    bindsym Down   resize grow   height 5px
+    bindsym Up     resize shrink height 5px
+    bindsym Right  resize grow   width  5px
 
     # Return to default mode
     bindsym Return mode "default"
@@ -234,10 +224,16 @@ bar {
 
 include /etc/sway/config.d/*
 
+assign [app_id="pavucontrol"] $ws0
+assign [title="dev-environment"] $ws2
+assign [class="Firefox" title="Slack.*"] $ws1
+assign [title="term-monitor"] $ws0
+assign [class="Firefox"] $ws3
+
 exec libinput-gestures-setup start
-exec swaymsg workspace $ws2; exec alacritty --title dev
-exec swaymsg workspace $ws3; exec firefox https://news.ycombinator.com/
-exec swaymsg workspace $ws1; exec firefox $WORK_SLACK_URL
-exec swaymsg workspace $ws0; exec alacritty --title monitor
-exec swaymsg workspace $ws0; exec firefox https://calendar.google.com/calendar
-exec swaymsg workspace $ws0; exec pavucontrol
+exec alacritty -t dev-environment
+exec firefox -new-window $(echo $WORK_SLACK_URL)
+exec firefox -new-window https://news.ycombinator.com/
+exec alacritty -t term-monitor -e zsh -c tmux
+exec firefox -new-window https://calendar.google.com/calendar
+exec pavucontrol

@@ -1,17 +1,13 @@
-name: Monitor
-root: .
+name: monitor
+root: ~/
 
-# Starts a web development environment in the current path with four windows.
-# - An editor window with a small console for git stuff
-# - Starts a web server
-# - A window for random stuff
+# on_project_first_start: ~/Viriciti/scripts/start-up.sh
+
+# on_project_stop: sudo systemctl stop openvpn@virivpn && docker ps -aq | xargs docker stop
 
 windows:
-  - Monitoring:
-      layout: 7f21,190x45,0,0[190x15,0,0,4,190x29,0,16{49x29,0,16,9,82x29,50,16,10,57x29,133,16,11}]
+  - portal:
+      # layout: main-horizontal
       panes:
-        - vim:
+        - monitor:
           - htop
-        - shell:
-        - shell:
-        - shell:
