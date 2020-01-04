@@ -232,7 +232,7 @@ assign [class="Firefox"] $ws3
 
 exec libinput-gestures-setup start
 exec alacritty -t dev-environment
-exec firefox -new-window $(echo $WORK_SLACK_URL)
+exec zsh -c "source /home/dan/.zshrc && firefox -new-window $(echo $WORK_SLACK_URL)"
 exec firefox -new-window https://news.ycombinator.com/
 exec alacritty -t term-monitor -e zsh -c tmux
 exec firefox -new-window https://calendar.google.com/calendar
