@@ -1,13 +1,13 @@
 name: monitor
 root: ~/
 
-# on_project_first_start: ~/Viriciti/scripts/start-up.sh
-
-# on_project_stop: sudo systemctl stop openvpn@virivpn && docker ps -aq | xargs docker stop
-
 windows:
-  - portal:
-      # layout: main-horizontal
+  - main:
+      layout: 0ea9,274x74,0,0{136x74,0,0,16,137x74,137,0[137x51,137,0,17,137x22,137,52,19]}
       panes:
-        - monitor:
-          - htop
+        - ytop:
+          - ytop -p
+        - dmesg:
+          - dmesg -wT
+        - pulsemixer:
+          - pulsemixer

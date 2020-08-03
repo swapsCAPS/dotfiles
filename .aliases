@@ -19,7 +19,9 @@ alias kt='kubetail'
 alias kcd='kubectl describe'
 alias kgrep='kubectl get po | grep '
 alias kcl='kubectl logs'
-alias klogs='kubectl logs -f --tail 1000'
+alias klogpo='kubectl logs -f --tail 1000'
+
+klogapp() { kubectl logs -f --tail 1000 --max-log-requests=50 -l app=$1 }
 
 # SYSTEMCTL
 alias sstart='sudo systemctl start '

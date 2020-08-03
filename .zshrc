@@ -6,7 +6,7 @@ COMPLETION_WAITING_DOTS="true"
 
 HIST_STAMPS="yyyy-mm-dd"
 
-plugins=(git kubectl kubetail git-flow npm tmux coffee node zsh-autosuggestions)
+plugins=(git kubectl git-flow npm tmux coffee node zsh-autosuggestions)
 
 export PATH="/opt/nbfc:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
@@ -46,7 +46,18 @@ export PATH=$GOPATH:$GOPATH/bin:$PATH
 # Rust
 export PATH=$HOME/.cargo/bin:$PATH
 
+# Deno!
+export DENO_INSTALL="/home/dan/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 source $ZSH/oh-my-zsh.sh
+
+# Make it easy to run zsh with a cmd
+if [[ $1 == eval ]]
+then
+    "$@"
+set --
+fi
 
 # Try to source our aliases
 if [ -f ~/src/dotfiles/.aliases ]; then
@@ -78,9 +89,11 @@ fi
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
-# Base16 theme switcher
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # Set default user so prompt string isn't too long
 DEFAULT_USER=$(whoami)
