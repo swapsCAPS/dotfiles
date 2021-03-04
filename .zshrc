@@ -6,9 +6,9 @@ COMPLETION_WAITING_DOTS="true"
 
 HIST_STAMPS="yyyy-mm-dd"
 
-plugins=(git kubectl git-flow npm tmux coffee node zsh-autosuggestions)
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
-export PATH="/opt/nbfc:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+plugins=(git kubectl git-flow npm tmux coffee node zsh-autosuggestions)
 
 # Load rbenv
 if [ -d ~/.rbenv ]; then
@@ -20,23 +20,17 @@ fi
 # Load nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Place binaries in these dirs
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+# Mah binaries
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Kafka
 export PATH="$HOME/src/kafka_2.11-1.1.0/bin:$PATH"
 
 # Android
-export PATH="$HOME/bin/platform-tools:$PATH"
-
-# Blender color fix, you'll need to start Blender from a shell though
-export OCIO="$HOME/src/filmic-blender/config.ocio"
-
-# Linkerd
-export PATH=$PATH:$HOME/.linkerd2/bin
+export PATH="$PATH:$HOME/bin/platform-tools"
 
 # GO!
 export PATH=$PATH:/usr/local/go/bin
@@ -47,17 +41,13 @@ export PATH=$GOPATH:$GOPATH/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
 # Deno!
-export DENO_INSTALL="/home/dan/.deno"
+export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-source $ZSH/oh-my-zsh.sh
+# gcc
+export PATH="$HOME/gcc-arm-9.2-2019.12-x86_64-arm-none-linux-gnueabihf/bin:$PATH"
 
-# Make it easy to run zsh with a cmd
-if [[ $1 == eval ]]
-then
-    "$@"
-set --
-fi
+source $ZSH/oh-my-zsh.sh
 
 # Try to source our aliases
 if [ -f ~/src/dotfiles/.aliases ]; then
@@ -85,10 +75,6 @@ if [ -f ~/bin/tmuxinator.zsh ]; then
   source ~/bin/tmuxinator.zsh
 fi
 
-# zsh completion path
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
-
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
@@ -103,10 +89,6 @@ KEYTIMEOUT=1
 
 # kubectl completion
 source <(kubectl completion zsh)
-
-if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
-  source /home/dan/miniconda3/etc/profile.d/conda.sh
-fi
 
 if [ -f ~/src/kube-ps1/kube-ps1.sh ]; then
   source ~/src/kube-ps1/kube-ps1.sh

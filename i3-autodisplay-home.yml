@@ -1,0 +1,4 @@
+displays:
+  - name: DP-3
+    workspaces: [1,2,3,4,5,6,7,8,9,0]
+    randr_extra_options: "--right-of eDP-1"

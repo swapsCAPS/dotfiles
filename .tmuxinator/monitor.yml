@@ -3,11 +3,11 @@ root: ~/
 
 windows:
   - main:
-      layout: 0ea9,274x74,0,0{136x74,0,0,16,137x74,137,0[137x51,137,0,17,137x22,137,52,19]}
+      layout: 98a1,272x64,0,0{135x64,0,0,0,136x64,136,0[136x32,136,0,1,136x31,136,33,3]}
       panes:
-        - ytop:
-          - ytop -p
+        - bashtop:
+          - bashtop
         - dmesg:
           - dmesg -wT
-        - pulsemixer:
-          - pulsemixer
+        - htop:
+          - htop
