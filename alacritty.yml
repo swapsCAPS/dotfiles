@@ -22,3 +22,5 @@ save_to_clipboard: true
 
 window:
   decorations: none
+
+shell: wsl
