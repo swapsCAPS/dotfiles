@@ -21,6 +21,8 @@ font:
 save_to_clipboard: true
 
 window:
-  decorations: none
+  # - full: borders and title bar
+  # - none: neither borders nor title bar
+  decorations: full
 
 shell: wsl
