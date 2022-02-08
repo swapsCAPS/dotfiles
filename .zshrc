@@ -6,9 +6,14 @@ COMPLETION_WAITING_DOTS="true"
 
 HIST_STAMPS="yyyy-mm-dd"
 
+export TERM=alacritty
+
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
 plugins=(git kubectl git-flow npm tmux coffee node zsh-autosuggestions)
+
+# Toolchains
+export PATH="$HOME/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin:$PATH"
 
 # Load rbenv
 if [ -d ~/.rbenv ]; then
@@ -27,10 +32,15 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
 # Kafka
-export PATH="$HOME/src/kafka_2.11-1.1.0/bin:$PATH"
+export PATH="$HOME/src/kafka/bin:$PATH"
 
 # Android
 export PATH="$PATH:$HOME/bin/platform-tools"
+
+# CUDA
+export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/lib/cuda/include:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
 
 # GO!
 export PATH=$PATH:/usr/local/go/bin
@@ -46,6 +56,9 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 # gcc
 export PATH="$HOME/gcc-arm-9.2-2019.12-x86_64-arm-none-linux-gnueabihf/bin:$PATH"
+
+# linkerd
+export PATH=$PATH:$HOME/.linkerd2/bin
 
 source $ZSH/oh-my-zsh.sh
 

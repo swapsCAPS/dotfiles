@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias Grep="grep -rni ./ --exclude-dir node_modules --exclude-dir build --exclude-dir dist -e"
 alias dirs="dirs -v"
 alias tmux='tmux'
@@ -35,7 +37,16 @@ alias D='base16_gruvbox-dark-medium'
 alias L='base16_gruvbox-light-medium'
 alias shrug='echo ¯\\_(ツ)_/¯'
 
+export VC_SCHEMA_REG="https://ksql-schemas.cloud1.viriciti.com/"
+alias kafkacat="docker run -i --net host -v $HOME:$HOME edenhill/kafkacat:1.6.0 "
+
 if type nvim >/dev/null 2>/dev/null; then
   alias vim='nvim'
   export EDITOR='nvim'
 fi
+
+# Defaults
+
+## FZF
+export FZF_DEFAULT_COMMAND='fdfind --exclude node_modules --exclude .git'
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"

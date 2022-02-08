@@ -3,11 +3,11 @@ root: ~/
 
 windows:
   - main:
-      layout: 98a1,272x64,0,0{135x64,0,0,0,136x64,136,0[136x32,136,0,1,136x31,136,33,3]}
+      layout: 03f5,274x75,0,0{137x75,0,0,10,136x75,138,0[136x37,138,0,11,136x37,138,38,12]}
       panes:
-        - bashtop:
-          - bashtop
         - dmesg:
           - dmesg -wT
-        - htop:
-          - htop
+        - journalctl:
+          - journalctl -f
+        - bpytop:
+          - bpytop

@@ -6,7 +6,7 @@ set $down  j
 set $up    k
 set $right l
 
-set $term gnome-terminal
+set $term alacritty
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -93,7 +93,7 @@ bindsym $mod+Shift+2 move container to workspace $ws_term
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -126,7 +126,13 @@ exec --no-startup-id setxkbmap -option caps:swapescape
 exec --no-startup-id setxkbmap -layout us
 exec --no-startup-id setxkbmap -keymap altgr-intl
 
+# Set touchpad settings <device-id> <property-id> (using `xinput list` and
+# `xinput list-props`)
+exec xinput set-prop 13 298 1 # Tap to click
+exec xinput set-prop 13 282 1 # Natural scrolling
+
 exec --no-startup-id libinput-gestures-setup start
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 exec dropbox
 
 bar {

@@ -31,7 +31,7 @@ indent_style = tab
 indent_size = 4
 [**.coffee]
 indent_style = tab
-indent_size = 4
+indent_size = 2
 [**.cjsx]
 indent_style = tab
 indent_size = 4
@@ -39,6 +39,9 @@ indent_size = 4
 indent_style = tab
 indent_size = 4
 [**.js]
+indent_style = space
+indent_size = 2
+[**.jsonnet]
 indent_style = space
 indent_size = 2
 [**.py]
@@ -55,4 +58,7 @@ indent_style = tab
 indent_size = 2
 [**.rs]
 indent_style = space
+indent_size = 4
+[**.sh]
+indent_style = tab
 indent_size = 4
