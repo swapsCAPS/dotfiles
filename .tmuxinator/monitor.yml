@@ -6,8 +6,8 @@ windows:
       layout: 03f5,274x75,0,0{137x75,0,0,10,136x75,138,0[136x37,138,0,11,136x37,138,38,12]}
       panes:
         - dmesg:
-          - dmesg -wT
+          - sudo dmesg -wT
         - journalctl:
           - journalctl -f
         - bpytop:
-          - bpytop
+          - htop

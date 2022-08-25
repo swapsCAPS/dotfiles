@@ -15,6 +15,7 @@ sudo apt --ignore-missing install \
   git \
   git-flow \
   htop \
+  libinput-tools \
   lynx \
   mc \
   neovim \
@@ -24,6 +25,8 @@ sudo apt --ignore-missing install \
   tmuxinator \
   unzip \
   wget \
+  wmctrl \
+  xdotool \
   zsh
 
 git config --global user.name "swapsCAPS"
