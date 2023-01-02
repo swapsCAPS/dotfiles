@@ -10,7 +10,13 @@ export TERM=xterm-256color
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
-plugins=(git kubectl git-flow npm tmux coffee node zsh-autosuggestions)
+# brew coreutils override
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
+# homebrew bins
+export PATH="/opt/homebrew/bin:$PATH"
+
+plugins=(git tmux npm node zsh-autosuggestions)
 
 # Toolchains
 export PATH="$HOME/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin:$PATH"
@@ -89,7 +95,7 @@ if [ -f ~/src/dotfiles/.aliases ]; then
     . ~/src/dotfiles/.aliases
 fi
 
-if [ -f ~/src/dotfiles/gruvbox.dircolors ]; then
+if [ -f "~/src/dotfiles/gruvbox.dircolors" ]; then
     eval "$(dircolors ~/src/dotfiles/gruvbox.dircolors)"
 fi
 
@@ -112,9 +118,7 @@ fi
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+source "$BASE16_SHELL/profile_helper.sh"
 
 # Set default user so prompt string isn't too long
 DEFAULT_USER=$(whoami)
@@ -132,3 +136,5 @@ fi
 PROMPT='
 $(_user_host)${_current_dir}$(kube_ps1) $(git_prompt_info)
 %{$fg[$CARETCOLOR]%}▶%{$resetcolor%} '
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
