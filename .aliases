@@ -47,5 +47,5 @@ fi
 # Defaults
 
 ## FZF
-export FZF_DEFAULT_COMMAND='fdfind --exclude node_modules --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --exclude node_modules --exclude .git'
 export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
