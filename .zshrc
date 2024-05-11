@@ -4,6 +4,8 @@ ZSH_THEME="avit"
 
 COMPLETION_WAITING_DOTS="true"
 
+HISTSIZE=100000
+SAVEHIST=$HISTSIZE
 HIST_STAMPS="yyyy-mm-dd"
 
 export TERM=xterm-256color
@@ -28,33 +30,6 @@ if [ -d ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 fi
 
-# Load nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# Pick up .nvmrc
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
 # Mah binaries
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/bin"
@@ -64,11 +39,6 @@ export PATH="$HOME/src/kafka/bin:$PATH"
 
 # Android
 export PATH="$PATH:$HOME/bin/platform-tools"
-
-# CUDA
-export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/lib/cuda/include:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
 
 # GO!
 export PATH=$PATH:/usr/local/go/bin
@@ -133,8 +103,10 @@ if [ -f ~/src/kube-ps1/kube-ps1.sh ]; then
   source ~/src/kube-ps1/kube-ps1.sh
 fi
 
-PROMPT='
-$(_user_host)${_current_dir}$(kube_ps1) $(git_prompt_info)
-%{$fg[$CARETCOLOR]%}▶%{$resetcolor%} '
-# Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export PATH="$HOME/.jenv/bin:$PATH"
+
+eval "$(jenv init -)"
+eval "$(starship init zsh)"
+eval "$(~/.local/bin/mise activate zsh)"
