@@ -23,6 +23,9 @@ plugins=(git tmux npm node zsh-autosuggestions)
 # Toolchains
 export PATH="$HOME/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin:$PATH"
 
+# Podman
+export PATH="/opt/podman/bin:$PATH"
+
 # Load rbenv
 if [ -d ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
@@ -65,9 +68,9 @@ if [ -f ~/src/dotfiles/.aliases ]; then
     . ~/src/dotfiles/.aliases
 fi
 
-if [ -f "~/src/dotfiles/gruvbox.dircolors" ]; then
-    eval "$(dircolors ~/src/dotfiles/gruvbox.dircolors)"
-fi
+# if [ -f "~/src/dotfiles/gruvbox.dircolors" ]; then
+#     eval "$(dircolors ~/src/dotfiles/gruvbox.dircolors)"
+# fi
 
 # Try to source our env vars
 if [ -f ~/.env ]; then
@@ -86,9 +89,9 @@ if [ -f ~/bin/tmuxinator.zsh ]; then
   source ~/bin/tmuxinator.zsh
 fi
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-source "$BASE16_SHELL/profile_helper.sh"
+# # Base16 Shell
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# source "$BASE16_SHELL/profile_helper.sh"
 
 # Set default user so prompt string isn't too long
 DEFAULT_USER=$(whoami)
