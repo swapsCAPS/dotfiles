@@ -35,9 +35,11 @@ alias D='base16_gruvbox-dark-medium'
 alias L='base16_gruvbox-light-medium'
 alias shrug='echo ¯\\_(ツ)_/¯'
 
+split_str() { echo $1 | tr $2 $3 }
+
 export VC_SCHEMA_REG="https://ksql-schemas.cloud1.viriciti.com/"
-alias kafkacat="docker run -i edenhill/kcat:1.7.1 "
-alias kcat="docker run -i edenhill/kcat:1.7.1 "
+alias kafkacat="docker run -it --rm confluentinc/cp-kafkacat:7.0.14 kafkacat "
+alias kcat="docker run -it --rm confluentinc/cp-kafkacat:7.0.14 kafkacat "
 
 if type nvim >/dev/null 2>/dev/null; then
   alias vim='nvim'
