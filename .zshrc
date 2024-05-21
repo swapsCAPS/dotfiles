@@ -8,8 +8,6 @@ HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 HIST_STAMPS="yyyy-mm-dd"
 
-export TERM=xterm-256color
-
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
 # brew coreutils override
@@ -68,10 +66,6 @@ if [ -f ~/src/dotfiles/.aliases ]; then
     . ~/src/dotfiles/.aliases
 fi
 
-# if [ -f "~/src/dotfiles/gruvbox.dircolors" ]; then
-#     eval "$(dircolors ~/src/dotfiles/gruvbox.dircolors)"
-# fi
-
 # Try to source our env vars
 if [ -f ~/.env ]; then
     . ~/.env
@@ -80,18 +74,9 @@ if [ -f ~/.environment-variables ]; then
     . ~/.environment-variables
 fi
 
-# Colerrs
-if [ -f ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh ]; then
-    ~/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh
-fi
-
 if [ -f ~/bin/tmuxinator.zsh ]; then
   source ~/bin/tmuxinator.zsh
 fi
-
-# # Base16 Shell
-# BASE16_SHELL="$HOME/.config/base16-shell/"
-# source "$BASE16_SHELL/profile_helper.sh"
 
 # Set default user so prompt string isn't too long
 DEFAULT_USER=$(whoami)
