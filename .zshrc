@@ -86,6 +86,7 @@ KEYTIMEOUT=1
 
 # kubectl completion
 source <(kubectl completion zsh)
+source <(fzf --zsh)
 
 if [ -f ~/src/kube-ps1/kube-ps1.sh ]; then
   source ~/src/kube-ps1/kube-ps1.sh
