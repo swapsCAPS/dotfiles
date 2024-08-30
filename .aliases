@@ -1,52 +1,23 @@
 #!/bin/bash
 
-alias Grep="grep -rni ./ --exclude-dir node_modules --exclude-dir build --exclude-dir dist -e"
 alias dirs="dirs -v"
 alias ls='ls -lh --color=auto'
-alias lst='ls -tlh --color=auto'
 alias la='ls -lah --color=auto'
-alias lat='ls -halt --color=auto'
 alias :q='exit'
-alias sagi="sudo apt install"
-alias sagr="sudo apt remove"
-alias cl="clear"
 alias gdc='git diff --cached'
-alias sudo='sudo '
 alias fuh='kill -9'
-alias dlogs='docker logs -f --tail 500'
 alias glog='git log --oneline --decorate --graph --remotes --branches --tags'
 alias kc='kubectl'
-alias kcd='kubectl describe'
-alias kgrep='kubectl get po | grep '
-alias kcl='kubectl logs'
 alias klogpo='kubectl logs -f --tail 1000'
 
 klogapp() { kubectl logs --prefix -f --tail 1000 --max-log-requests=50 -l app=$1 -c $2 }
 
-# SYSTEMCTL
-alias sstart='sudo systemctl start '
-alias srestart='sudo systemctl restart '
-alias sstop='sudo systemctl stop '
-alias senable='sudo systemctl enable '
-alias sstatus='sudo systemctl status '
-alias sdisable='sudo systemctl disable '
-
-alias D='base16_gruvbox-dark-medium'
-alias L='base16_gruvbox-light-medium'
-alias shrug='echo ¯\\_(ツ)_/¯'
-
-split_str() { echo $1 | tr $2 $3 }
-
-export VC_SCHEMA_REG="https://ksql-schemas.cloud1.viriciti.com/"
-alias kafkacat="docker run -it --rm confluentinc/cp-kafkacat:7.0.14 kafkacat "
-alias kcat="docker run -it --rm confluentinc/cp-kafkacat:7.0.14 kafkacat "
+alias kcat="docker run -it --rm confluentinc/cp-kafkacat:7.1.13 kafkacat "
 
 if type nvim >/dev/null 2>/dev/null; then
   alias vim='nvim'
   export EDITOR='nvim'
 fi
-
-# Defaults
 
 ## FZF
 export FZF_DEFAULT_COMMAND='fd --exclude node_modules --exclude .git'
