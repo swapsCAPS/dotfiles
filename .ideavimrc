@@ -15,7 +15,7 @@ set incsearch
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
-set relativenumber number
+set number
 
 set timeoutlen=500
 set ttimeoutlen=0
