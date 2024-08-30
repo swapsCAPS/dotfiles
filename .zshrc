@@ -8,58 +8,62 @@ HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 HIST_STAMPS="yyyy-mm-dd"
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-
-# brew coreutils override
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-
-# homebrew bins
-export PATH="/opt/homebrew/bin:$PATH"
-
 plugins=(git tmux npm node zsh-autosuggestions)
 
-# Toolchains
-export PATH="$HOME/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu/bin:$PATH"
+source $ZSH/oh-my-zsh.sh
+
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+
+# jenv
+if [ -d ~/.jenv ]; then
+  export PATH="~/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
 
 # Podman
-export PATH="/opt/podman/bin:$PATH"
+if [ -d /opt/podman/bin ]; then
+  export PATH="/opt/podman/bin:$PATH"
+fi
 
 # Load rbenv
 if [ -d ~/.rbenv ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
+  export PATH="~/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
-  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+  export PATH="~/.rbenv/plugins/ruby-build/bin:$PATH"
 fi
 
-# Mah binaries
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/.local/bin"
-
 # Kafka
-export PATH="$HOME/src/kafka/bin:$PATH"
+if [ -d ~/src/kafka/bin ]; then
+  export PATH="~/src/kafka/bin:$PATH"
+fi
 
-# Android
-export PATH="$PATH:$HOME/bin/platform-tools"
+if [ -f /opt/homebrew/bin/brew ]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  # brew coreutils override
+  export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+fi
 
 # GO!
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/code/go
+export PATH=/usr/local/go/bin:$PATH
+export GOPATH=~/code/go
 export PATH=$GOPATH:$GOPATH/bin:$PATH
 
 # Rust
-export PATH=$HOME/.cargo/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
 
 # Deno!
-export DENO_INSTALL="$HOME/.deno"
+export DENO_INSTALL="~/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-# gcc
-export PATH="$HOME/gcc-arm-9.2-2019.12-x86_64-arm-none-linux-gnueabihf/bin:$PATH"
-
 # linkerd
-export PATH=$PATH:$HOME/.linkerd2/bin
+export PATH=$PATH:~/.linkerd2/bin
 
-source $ZSH/oh-my-zsh.sh
+# Mah binaries
+export PATH="~/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
+
 
 # Try to source our aliases
 if [ -f ~/src/dotfiles/.aliases ]; then
@@ -85,17 +89,27 @@ DEFAULT_USER=$(whoami)
 KEYTIMEOUT=1
 
 # kubectl completion
-source <(kubectl completion zsh)
-source <(fzf --zsh)
+if command -v kubectl >&2; then
+  source <(kubectl completion zsh)
+fi
 
+# fzf completion
+if command -v fzf >&2; then
+  source <(fzf --zsh)
+fi
+
+# Starship
+if command -v starship >&2; then
+  eval "$(starship init zsh)"
+fi
+
+# Mise
+if [ -f ~/.local/bin/mise ]; then
+  eval "$(~/.local/bin/mise activate zsh)"
+fi
+
+# Kube PS1
 if [ -f ~/src/kube-ps1/kube-ps1.sh ]; then
   source ~/src/kube-ps1/kube-ps1.sh
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-export PATH="$HOME/.jenv/bin:$PATH"
-
-eval "$(jenv init -)"
-eval "$(starship init zsh)"
-eval "$(~/.local/bin/mise activate zsh)"
