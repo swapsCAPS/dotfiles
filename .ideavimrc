@@ -16,9 +16,9 @@ set incsearch
 map Q gq
 
 set number
-
 set timeoutlen=500
 set ttimeoutlen=0
+set clipboard+=unnamed
 
 nnoremap <F4> :NERDTreeFocus <Enter>
 
