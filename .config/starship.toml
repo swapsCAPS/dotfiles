@@ -3,3 +3,6 @@ disabled = false
 
 [kubernetes]
 disabled = false
+
+[pulumi]
+disabled = false
