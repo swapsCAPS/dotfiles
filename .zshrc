@@ -10,7 +10,7 @@ HIST_STAMPS="yyyy-mm-dd"
 DEFAULT_USER=$(whoami)
 KEYTIMEOUT=1
 
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
