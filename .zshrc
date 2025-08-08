@@ -23,7 +23,10 @@ export PATH="~/.pulumi/bin:$PATH"
 export PATH="~/src/kafka/bin:$PATH"
 
 # Rust
-export PATH="~/.cargo/bin:$PATH"
+if [ -d ~/.cargo ]; then
+  export PATH="~/.cargo/bin:$PATH"
+  . ~/.cargo/env
+fi
 
 # Brew
 if [ -f /opt/homebrew/bin/brew ]; then
