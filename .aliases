@@ -18,8 +18,6 @@ klogapp() {
 
 alias secret_decode="jq '.data | map_values(. | @base64d)'"
 
-alias kcat="docker run -it --rm confluentinc/cp-kafkacat:7.1.13 kafkacat "
-
 if type nvim >/dev/null 2>/dev/null; then
   alias vim="nvim"
   alias vimdiff="nvim -d"

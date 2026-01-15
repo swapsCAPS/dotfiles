@@ -1,6 +1,6 @@
 DISABLE_AUTO_UPDATE="true"
 
-export ZSH=~/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="avit"
 COMPLETION_WAITING_DOTS="true"
@@ -17,15 +17,15 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin:$HOME/.local/bin"
 
 # Pulumi
-export PATH="~/.pulumi/bin:$PATH"
+export PATH="$HOME/.pulumi/bin:$PATH"
 
 # Kafka
-export PATH="~/src/kafka/bin:$PATH"
+export PATH="$HOME/src/kafka/bin:$PATH"
 
 # Rust
-if [ -d ~/.cargo ]; then
-  export PATH="~/.cargo/bin:$PATH"
-  . ~/.cargo/env
+if [ -d $HOME/.cargo ]; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+  . $HOME/.cargo/env
 fi
 
 # Brew
@@ -38,13 +38,13 @@ if [ -f /opt/homebrew/bin/brew ]; then
 fi
 
 # Try to source our aliases
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
+if [ -f $HOME/.aliases ]; then
+    . $HOME/.aliases
 fi
 
 # Try to source our env vars
-if [ -f ~/.env ]; then
-    . ~/.env
+if [ -f $HOME/.env ]; then
+    . $HOME/.env
 fi
 
 # kubectl completion
@@ -58,8 +58,8 @@ if type fzf &> /dev/null; then
 fi
 
 # Mise
-if [ -f ~/.local/bin/mise ]; then
-  eval "$(~/.local/bin/mise activate zsh)"
+if [ -f $HOME/.local/bin/mise ]; then
+  eval "$($HOME/.local/bin/mise activate zsh)"
 fi
 
 # Starship
@@ -67,3 +67,6 @@ if type starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
 
+
+# opencode
+export PATH=/Users/dan/.opencode/bin:$PATH
