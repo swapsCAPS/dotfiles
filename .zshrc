@@ -28,6 +28,7 @@ if [ -d $HOME/.cargo ]; then
   . $HOME/.cargo/env
 fi
 
+fi
 # Brew
 if [ -f /opt/homebrew/bin/brew ]; then
   export PATH="/opt/homebrew/bin:$PATH"
@@ -70,3 +71,10 @@ fi
 
 # opencode
 export PATH=/Users/dan/.opencode/bin:$PATH
+
+# bun completions
+[ -s "/Users/dan/.bun/_bun" ] && source "/Users/dan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
