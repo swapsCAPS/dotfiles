@@ -28,7 +28,6 @@ if [ -d $HOME/.cargo ]; then
   . $HOME/.cargo/env
 fi
 
-fi
 # Brew
 if [ -f /opt/homebrew/bin/brew ]; then
   export PATH="/opt/homebrew/bin:$PATH"
