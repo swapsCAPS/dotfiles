@@ -82,14 +82,3 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 if type starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
-
-
-# opencode
-export PATH=/Users/dan/.opencode/bin:$PATH
-
-# bun completions
-[ -s "/Users/dan/.bun/_bun" ] && source "/Users/dan/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
