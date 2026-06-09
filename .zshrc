@@ -1,18 +1,16 @@
+# source antidote
+source "$HOME/.antidote/antidote.zsh"
+
+# initialize plugins statically with ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
+antidote load
+
 DISABLE_AUTO_UPDATE="true"
-
-export ZSH=$HOME/.oh-my-zsh
-
-ZSH_THEME="avit"
 COMPLETION_WAITING_DOTS="true"
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 HIST_STAMPS="yyyy-mm-dd"
 DEFAULT_USER=$(whoami)
 KEYTIMEOUT=1
-
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin:$HOME/.local/bin"
 
@@ -21,6 +19,9 @@ export PATH="$HOME/.pulumi/bin:$PATH"
 
 # Kafka
 export PATH="$HOME/src/kafka/bin:$PATH"
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
 
 # Rust
 if [ -d $HOME/.cargo ]; then
@@ -61,6 +62,21 @@ fi
 if [ -f $HOME/.local/bin/mise ]; then
   eval "$($HOME/.local/bin/mise activate zsh)"
 fi
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "/Users/dan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Starship
 if type starship &> /dev/null; then
