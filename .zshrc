@@ -27,44 +27,43 @@ export PATH="$HOME/src/kafka/bin:$PATH"
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
 
-# Rust
-if [ -d $HOME/.cargo ]; then
-  export PATH="$HOME/.cargo/bin:$PATH"
-  . $HOME/.cargo/env
-fi
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
 
-# Brew
-if [ -f /opt/homebrew/bin/brew ]; then
-  export PATH="/opt/homebrew/bin:$PATH"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-
-  # brew coreutils override
-  export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-fi
-
-# Try to source our aliases
-if [ -f $HOME/.aliases ]; then
-    . $HOME/.aliases
-fi
+# brew
+export PATH="/opt/homebrew/bin:$PATH"
+# brew coreutils override
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
 # Try to source our env vars
 if [ -f $HOME/.env ]; then
     . $HOME/.env
 fi
 
-# kubectl completion
-if type kubectl &> /dev/null; then
-  source <(kubectl completion zsh)
+# Rust
+if [ -d $HOME/.cargo ]; then
+  . $HOME/.cargo/env
+fi
+
+
+if [ -f /opt/homebrew/bin/brew ]; then
+  lazyload brew -- 'eval "$(/opt/homebrew/bin/brew shellenv)"'
 fi
 
 # fzf completion
 if type fzf &> /dev/null; then
-  source <(fzf --zsh)
+  lazyload fzf -- 'source <(fzf --zsh)'
+fi
+
+
+# kubectl completion
+if type kubectl &> /dev/null; then
+  lazyload kubectl -- 'source <(kubectl completion zsh)'
 fi
 
 # Mise
 if [ -f $HOME/.local/bin/mise ]; then
-  eval "$($HOME/.local/bin/mise activate zsh)"
+  lazyload mise -- 'eval "$($HOME/.local/bin/mise activate zsh)"'
 fi
 
 # pnpm
@@ -76,7 +75,10 @@ esac
 # pnpm end
 
 # bun completions
-[ -s "$HOME/.bun/_bun" ] && source "/Users/dan/.bun/_bun"
+if [ -s "$HOME/.bun/_bun" ]; then
+  lazyload bun -- 'source "/Users/dan/.bun/_bun"'
+  lazyload _bun -- 'source "/Users/dan/.bun/_bun"'
+fi
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -86,3 +88,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 if type starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
+
+# Try to source our aliases
+if [ -f $HOME/.aliases ]; then
+    . $HOME/.aliases
+fi
+

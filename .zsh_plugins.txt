@@ -5,6 +5,8 @@ aloxaf/fzf-tab
 getantidote/use-omz
 ohmyzsh/ohmyzsh path:plugins/git
 
+qoomon/zsh-lazyload
+
 zsh-users/zsh-completions kind:fpath path:src
 zsh-users/zsh-history-substring-search
 zsh-users/zsh-autosuggestions
