@@ -1,7 +1,5 @@
-# source antidote
 source "$HOME/.antidote/antidote.zsh"
 
-# initialize plugins statically with ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 antidote load
 
 DISABLE_AUTO_UPDATE="true"
@@ -30,10 +28,6 @@ export PATH="$HOME/.opencode/bin:$PATH"
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# brew
-export PATH="/opt/homebrew/bin:$PATH"
-# brew coreutils override
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
 # Try to source our env vars
 if [ -f $HOME/.env ]; then
@@ -46,24 +40,28 @@ if [ -d $HOME/.cargo ]; then
 fi
 
 
+# brew
 if [ -f /opt/homebrew/bin/brew ]; then
-  lazyload brew -- 'eval "$(/opt/homebrew/bin/brew shellenv)"'
+  export PATH="/opt/homebrew/bin:$PATH"
+  # brew coreutils override
+  export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # fzf completion
 if type fzf &> /dev/null; then
-  lazyload fzf -- 'source <(fzf --zsh)'
+  source <(fzf --zsh)
 fi
 
 
 # kubectl completion
 if type kubectl &> /dev/null; then
-  lazyload kubectl -- 'source <(kubectl completion zsh)'
+  source <(kubectl completion zsh)
 fi
 
 # Mise
 if [ -f $HOME/.local/bin/mise ]; then
-  lazyload mise -- 'eval "$($HOME/.local/bin/mise activate zsh)"'
+  eval "$($HOME/.local/bin/mise activate zsh)"
 fi
 
 # pnpm
@@ -76,8 +74,7 @@ esac
 
 # bun completions
 if [ -s "$HOME/.bun/_bun" ]; then
-  lazyload bun -- 'source "/Users/dan/.bun/_bun"'
-  lazyload _bun -- 'source "/Users/dan/.bun/_bun"'
+  source "/Users/dan/.bun/_bun"
 fi
 
 # bun
