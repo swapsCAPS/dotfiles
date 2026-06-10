@@ -12,6 +12,10 @@ HIST_STAMPS="yyyy-mm-dd"
 DEFAULT_USER=$(whoami)
 KEYTIMEOUT=1
 
+bindkey '^[[A' history-substring-search-up # or '\eOA'
+bindkey '^[[B' history-substring-search-down # or '\eOB'
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin:$HOME/.local/bin"
 
 # Pulumi
