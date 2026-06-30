@@ -9,6 +9,7 @@ SAVEHIST=$HISTSIZE
 HIST_STAMPS="yyyy-mm-dd"
 DEFAULT_USER=$(whoami)
 KEYTIMEOUT=1
+WORDCHARS=""
 
 bindkey '^[[A' history-substring-search-up # or '\eOA'
 bindkey '^[[B' history-substring-search-down # or '\eOB'
