@@ -1,26 +1,15 @@
 source "$HOME/.antidote/antidote.zsh"
 
+HIST_STAMPS="yyyy-mm-dd"
+
 antidote load
 
-DISABLE_AUTO_UPDATE="true"
-COMPLETION_WAITING_DOTS="true"
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
-HIST_STAMPS="yyyy-mm-dd"
-DEFAULT_USER=$(whoami)
-KEYTIMEOUT=1
 WORDCHARS=""
-
-setopt autocd
-setopt interactivecomments
-setopt hist_ignore_dups
 
 # Comments are black by default wat?
 ZSH_HIGHLIGHT_STYLES[comment]='fg=magenta,dimmed'
-
-bindkey '^[[A' history-substring-search-up # or '\eOA'
-bindkey '^[[B' history-substring-search-down # or '\eOB'
-HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin:$HOME/.local/bin"
 
