@@ -8,6 +8,10 @@ HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 WORDCHARS=""
 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # Comments are black by default wat?
 ZSH_HIGHLIGHT_STYLES[comment]='fg=magenta,dimmed'
 
